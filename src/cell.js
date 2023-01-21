@@ -32,12 +32,11 @@ class Cell
 
 	play()
 	{
-		//play a middle 'C' for the duration of an 8th note
-		//Pad.synth.triggerAttackRelease("C4", "10n");
-
 		if(this.isActive)
 		{
-			synth.triggerAttackRelease(scale[this.row], "20n");
+			//synth.triggerAttackRelease(scale[this.row], "20n");
+			bass.triggerAttackRelease(scale[this.row], "20n");
+
 		}
 	}
 
@@ -47,7 +46,7 @@ class Cell
 
 		if(this.isActive)
 		{
-			ctx.fillStyle = '#FFFFFF99';
+			ctx.fillStyle = '#FFFFFFAA';
 		}
 		else if(this.isSelected)
 		{

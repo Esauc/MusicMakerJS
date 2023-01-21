@@ -1,5 +1,7 @@
 
+
 /* SYNTH */
+//var synth = new Tone.PolySynth(Tone.Synth).toDestination();
 var synth = new Tone.PolySynth(Tone.Synth).toDestination();
 
 /*
@@ -8,11 +10,11 @@ var synth = new Tone.PolySynth(Tone.Synth).toDestination();
 var kick = new Tone.MembraneSynth({
 	'envelope' : {
 		'sustain' : 0,
-		'attack' : 0.02,
-		'decay' : 0.8
+		'attack' : 0.001,
+		'decay' : 0.1
 	},
 	'octaves' : 10
-}).toMaster();
+}).toDestination();
 
 /*
  SNARE
@@ -29,7 +31,7 @@ var snare = new Tone.NoiseSynth({
 		'decay' : 0.1,
 		'sustain' : 0
 	}
-}).toMaster();
+}).toDestination();
 
 /**
  *  PIANO
@@ -40,27 +42,26 @@ var piano = new Tone.PolySynth(Tone.Synth, {
 		'partials' : [1, 2, 1],
 	},
 	'portamento' : 0.05
-}).toMaster();
+}).toDestination();
 
 
 /*
  BASS
  */
-var bass = new Tone.MonoSynth({
+var bass = new Tone.PolySynth(Tone.Synth, {
 	'volume' : -10,
 	'envelope' : {
-		'attack' : 0.1,
-		'decay' : 0.3,
-		'release' : 2,
+		'attack' : 0.5,
+		'decay' : 0.1
 	},
 	'filterEnvelope' : {
-		'attack' : 0.001,
-		'decay' : 0.01,
-		'sustain' : 0.5,
-		'baseFrequency' : 200,
-		'octaves' : 2.6
+		'attack' : 0.2,
+		'decay' : 0.1,
+		'sustain' : 0.8,
+		'baseFrequency' : 200
 	}
-}).toMaster();
+}).toDestination();
+
 
 
 // Construct scale array
